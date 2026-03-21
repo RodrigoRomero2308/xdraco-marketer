@@ -1,0 +1,116 @@
+# Glosario de habilidades (ES) inferido desde libros en inventario NFT.
+# Regenerar: python scripts/scrape_skill_books_by_class.py --class all --out-dir ...
+
+class_slug: warrior
+class_numeric: 1
+locale_names_primary: es
+source_note: Nombres ES desde ítems «Libro de habilidades de …» en GET /nft/character/inven
+generated_utc: '2026-03-21T18:14:44.238895Z'
+transport_ids_sampled:
+- 338744
+- 348343
+- 353747
+- 354618
+- 354708
+- 354758
+- 354923
+- 355194
+- 355233
+- 355254
+- 355371
+- 355395
+- 355414
+- 355450
+- 355502
+skills:
+- skill_id_suggested: arco_sacro
+  name_es: Arco sacro
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: carga_barbara
+  name_es: Carga bárbara
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: carga_montanosa
+  name_es: Carga montañosa
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: chi_opuesto
+  name_es: Chi opuesto
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: concha_arrasadora
+  name_es: Concha arrasadora
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: concha_explosiva
+  name_es: Concha explosiva
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: contratajo
+  name_es: Contratajo
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: corte_divisor
+  name_es: Corte divisor
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: disparo_rapido
+  name_es: Disparo rápido
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: espada_flamigera
+  name_es: Espada flamígera
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: flecha_destellante
+  name_es: Flecha destellante
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: gancho_ferroarena
+  name_es: Gancho ferroarena
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: postura_irrompible
+  name_es: Postura irrompible
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: rotura_de_suelo
+  name_es: Rotura de suelo
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: rugido_de_leon
+  name_es: Rugido de león
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: separador_lunar
+  name_es: Separador lunar
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: tajo_destruccion_del_vacio
+  name_es: Tajo destrucción del vacío
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: tajo_vendaval
+  name_es: Tajo vendaval
+  name_en: null
+  wiki_en_ref: null
+scraped_unique_fragments_es:
+- Arco sacro
+- Carga bárbara
+- Carga montañosa
+- Chi opuesto
+- Concha arrasadora
+- Concha explosiva
+- Contratajo
+- Corte divisor
+- Disparo rápido
+- Espada flamígera
+- Flecha destellante
+- Gancho ferroarena
+- Postura irrompible
+- Rotura de suelo
+- Rugido de león
+- Separador lunar
+- Tajo destrucción del vacío
+- Tajo vendaval

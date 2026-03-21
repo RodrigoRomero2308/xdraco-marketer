@@ -1,4 +1,5 @@
 from decimal import Decimal
+from pathlib import Path
 
 from xdraco_marketer.models.character import (
     CharacterProfile,
@@ -56,6 +57,93 @@ items:
 """
     rule = load_rule_from_yaml_text(yaml_text)
     assert matches(sample_mage(), rule)
+
+
+def test_example_yaml_skill_rules_or_two_paths() -> None:
+    """Carga examples/skill_rules_or_two_paths.yaml y valida ambos caminos del OR."""
+    root = Path(__file__).resolve().parents[1]
+    text = (root / "examples" / "skill_rules_or_two_paths.yaml").read_text(encoding="utf-8")
+    rule = load_rule_from_yaml_text(text)
+
+    meteor = CharacterProfile(
+        class_id="sorcerer",
+        power=400_000,
+        skills=[SkillLevel(skill_id="skill_meteor_storm", level=12)],
+        stats={"ataque magico": 1},
+    )
+    assert matches(meteor, rule)
+
+    combo = CharacterProfile(
+        class_id="sorcerer",
+        power=400_000,
+        skills=[
+            SkillLevel(skill_id="skill_ice_wall", level=9),
+            SkillLevel(skill_id="skill_fire_nova", level=9),
+        ],
+        stats={"ataque magico": 12_000},
+    )
+    assert matches(combo, rule)
+
+    fail_wrong_class = meteor.model_copy(update={"class_id": "warrior"})
+    assert not matches(fail_wrong_class, rule)
+
+
+def test_example_yaml_skill_rules_and_not_nested() -> None:
+    """Carga examples/skill_rules_and_not_nested.yaml: AND + NOT + OR con ítem."""
+    root = Path(__file__).resolve().parents[1]
+    text = (root / "examples" / "skill_rules_and_not_nested.yaml").read_text(encoding="utf-8")
+    rule = load_rule_from_yaml_text(text)
+
+    ok = CharacterProfile(
+        class_id="lancer",
+        power=450_000,
+        skills=[
+            SkillLevel(skill_id="skill_main_thrust", level=10),
+            SkillLevel(skill_id="skill_dragon_sweep", level=8),
+            SkillLevel(skill_id="skill_cosmetic_trap", level=10),
+            SkillLevel(skill_id="skill_burst_strike", level=11),
+        ],
+        items=[],
+    )
+    assert matches(ok, rule)
+
+    bad_not = ok.model_copy(
+        update={
+            "skills": [
+                SkillLevel(skill_id="skill_main_thrust", level=10),
+                SkillLevel(skill_id="skill_dragon_sweep", level=8),
+                SkillLevel(skill_id="skill_cosmetic_trap", level=12),
+                SkillLevel(skill_id="skill_burst_strike", level=11),
+            ]
+        }
+    )
+    assert not matches(bad_not, rule)
+
+    ok_via_gear = CharacterProfile(
+        class_id="lancer",
+        power=450_000,
+        skills=[
+            SkillLevel(skill_id="skill_main_thrust", level=10),
+            SkillLevel(skill_id="skill_dragon_sweep", level=8),
+            SkillLevel(skill_id="skill_cosmetic_trap", level=10),
+            SkillLevel(skill_id="skill_burst_strike", level=8),
+        ],
+        items=[EquippedItem(slot="weapon", rarity="legendary", enhancement=10)],
+    )
+    assert matches(ok_via_gear, rule)
+
+
+def test_example_yaml_skill_rules_or_power_stat() -> None:
+    root = Path(__file__).resolve().parents[1]
+    text = (root / "examples" / "skill_rules_or_and_power_stat.yaml").read_text(encoding="utf-8")
+    rule = load_rule_from_yaml_text(text)
+    p = CharacterProfile(
+        class_id="darkist",
+        power=600_000,
+        skills=[],
+        stats={"defensa fisica": 9000},
+    )
+    assert matches(p, rule)
 
 
 def test_and_or_not() -> None:

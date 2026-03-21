@@ -1,0 +1,96 @@
+# Glosario de habilidades (ES) inferido desde libros en inventario NFT.
+# Regenerar: python scripts/scrape_skill_books_by_class.py --class all --out-dir ...
+
+class_slug: lancer
+class_numeric: 5
+locale_names_primary: es
+source_note: Nombres ES desde ítems «Libro de habilidades de …» en GET /nft/character/inven
+generated_utc: '2026-03-21T18:16:54.167751Z'
+transport_ids_sampled:
+- 252906
+- 349664
+- 354266
+- 354428
+- 354698
+- 354869
+- 355268
+- 355403
+- 355419
+- 355422
+- 355477
+- 355479
+- 355493
+- 355497
+- 355500
+skills:
+- skill_id_suggested: absorcion_de_vida
+  name_es: Absorción de vida
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: golpe_de_cola_de_dragon
+  name_es: Golpe de cola de dragón
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: golpe_de_lanza
+  name_es: Golpe de lanza
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: golpe_de_senor_supremo
+  name_es: Golpe de señor supremo
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: golpe_demoledor
+  name_es: Golpe demoledor
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: golpe_divino
+  name_es: Golpe divino
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: golpe_lunar
+  name_es: Golpe lunar
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: golpe_relampago
+  name_es: Golpe relámpago
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: golpe_rompecielos
+  name_es: Golpe rompecielos
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: gran_tempestad
+  name_es: Gran tempestad
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: muro_de_viento
+  name_es: Muro de viento
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: patada_nirvana
+  name_es: Patada nirvana
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: rayo_buscador
+  name_es: Rayo buscador
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: rugido_de_dragon
+  name_es: Rugido de dragón
+  name_en: null
+  wiki_en_ref: null
+scraped_unique_fragments_es:
+- Absorción de vida
+- Golpe de cola de dragón
+- Golpe de lanza
+- Golpe de señor supremo
+- Golpe demoledor
+- Golpe divino
+- Golpe lunar
+- Golpe relámpago
+- Golpe rompecielos
+- Gran tempestad
+- Muro de viento
+- Patada nirvana
+- Rayo buscador
+- Rugido de dragón

@@ -1,0 +1,116 @@
+# Glosario de habilidades (ES) inferido desde libros en inventario NFT.
+# Regenerar: python scripts/scrape_skill_books_by_class.py --class all --out-dir ...
+
+class_slug: arbalist
+class_numeric: 4
+locale_names_primary: es
+source_note: Nombres ES desde ítems «Libro de habilidades de …» en GET /nft/character/inven
+generated_utc: '2026-03-21T18:16:11.820062Z'
+transport_ids_sampled:
+- 354000
+- 354324
+- 354738
+- 355219
+- 355263
+- 355423
+- 355427
+- 355454
+- 355466
+- 355498
+- 355499
+- 355501
+- 355506
+- 355511
+- 355514
+skills:
+- skill_id_suggested: arco_sacro
+  name_es: Arco sacro
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: concha_arrasadora
+  name_es: Concha arrasadora
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: concha_de_niebla_veneno
+  name_es: Concha de niebla veneno
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: concha_explosiva
+  name_es: Concha explosiva
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: contratajo
+  name_es: Contratajo
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: disparo_rapido
+  name_es: Disparo rápido
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: flecha_destellante
+  name_es: Flecha destellante
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: flecha_ilusoria
+  name_es: Flecha ilusoria
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: gancho_ferroarena
+  name_es: Gancho ferroarena
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: invocacion_de_devorador
+  name_es: Invocación de devorador
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: lluvia_de_flechas
+  name_es: Lluvia de flechas
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: ocultacion
+  name_es: Ocultación
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: ojo_mental
+  name_es: Ojo mental
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: postura_irrompible
+  name_es: Postura irrompible
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: rayo_buscador
+  name_es: Rayo buscador
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: reflujo
+  name_es: Reflujo
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: sangre_explosiva
+  name_es: Sangre explosiva
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: vendaval_hiriente
+  name_es: Vendaval hiriente
+  name_en: null
+  wiki_en_ref: null
+scraped_unique_fragments_es:
+- Arco sacro
+- Concha arrasadora
+- Concha de niebla veneno
+- Concha explosiva
+- Contratajo
+- Disparo rápido
+- Flecha destellante
+- Flecha ilusoria
+- Gancho ferroarena
+- Invocación de devorador
+- Lluvia de flechas
+- Ocultación
+- Ojo mental
+- Postura irrompible
+- Rayo buscador
+- Reflujo
+- Sangre explosiva
+- Vendaval hiriente

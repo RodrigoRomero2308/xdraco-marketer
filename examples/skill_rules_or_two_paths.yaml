@@ -1,0 +1,23 @@
+# Maga (sorcerer): o bien una skill principal muy subida, o par de skills medias + stat alto.
+# Umbrales de nivel: en MIR4 cada skill va de 1 a 12.
+# IDs de skill son ilustrativos; alinear con los que exponga la API / glosario (skill_id_suggested).
+type: and
+items:
+  - type: class_is
+    class_id: sorcerer
+  - type: power_gte
+    min_power: 350000
+  - type: or
+    items:
+      - type: skill_min
+        skill_id: skill_meteor_storm
+        min_level: 12
+      - type: and
+        items:
+          - type: all_skills_min
+            requirements:
+              skill_ice_wall: 9
+              skill_fire_nova: 9
+          - type: stat_key_gte
+            key: "Ataque Mágico"
+            min_value: 12000

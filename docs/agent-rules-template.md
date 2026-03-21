@@ -29,8 +29,8 @@ Actuás como ayuda técnica para escribir **reglas YAML** compatibles con el pro
 | `class_is` | `class_id` | Slug: `sorcerer`, `warrior`, … |
 | `power_gte` | `min_power` | Entero |
 | `power_lte` | `max_power` | Entero |
-| `skill_min` | `skill_id`, `min_level` | Si no hay endpoint de skills, el perfil puede tener `skills` vacío |
-| `all_skills_min` | `requirements` (map skill_id → nivel mínimo) | AND de varias skills |
+| `skill_min` | `skill_id`, `min_level` (1–12) | Si no hay endpoint de skills, el perfil puede tener `skills` vacío |
+| `all_skills_min` | `requirements` (map skill_id → nivel mínimo, cada uno 1–12) | AND de varias skills |
 | `item_any` | `slot`, `item_type`, `item_type_prefix`, `min_rarity`, `min_enhancement` | Al menos un ítem cumple |
 | `items_all_slots_min` | `slots` (lista), `min_enhancement`, `min_rarity` opcional | Cada slot listado debe tener ítem que cumpla |
 | `pets_any_of` | `pet_ids` | Lista |
@@ -53,6 +53,7 @@ Actuás como ayuda técnica para escribir **reglas YAML** compatibles con el pro
 - Tests del evaluador: `tests/test_rules_engine.py`
 - Normalización: `xdraco_marketer.stat_labels.normalize_stat_label`
 - Tabla de qué IDs usar (y qué no: iconos, URLs): `docs/rule-identifiers.md`
+- Skills Maga (nombres ES / IDs sugeridos): `data/glossary/sorcerer_skills.yaml`
 
 ### Restricciones
 

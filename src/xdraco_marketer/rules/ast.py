@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from typing import Annotated, Literal
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator
 
 
 class ClassIs(BaseModel):
@@ -25,18 +25,28 @@ class PowerLte(BaseModel):
 
 
 class SkillMinLevel(BaseModel):
-    """Una skill con nivel mínimo (inclusive)."""
+    """Una skill con nivel mínimo (inclusive). En MIR4 los niveles van de 1 a 12."""
 
     type: Literal["skill_min"] = "skill_min"
     skill_id: str
-    min_level: int = Field(ge=0)
+    min_level: int = Field(ge=1, le=12)
 
 
 class AllSkillsMin(BaseModel):
-    """Varias skills deben cumplir nivel mínimo (AND)."""
+    """Varias skills deben cumplir nivel mínimo (AND). Cada nivel debe estar entre 1 y 12 (MIR4)."""
 
     type: Literal["all_skills_min"] = "all_skills_min"
     requirements: dict[str, int]
+
+    @field_validator("requirements")
+    @classmethod
+    def _levels_mir4(cls, v: dict[str, int]) -> dict[str, int]:
+        for sid, lvl in v.items():
+            if not 1 <= lvl <= 12:
+                raise ValueError(
+                    f"Nivel de skill para {sid!r} debe estar entre 1 y 12 (MIR4), recibido {lvl}"
+                )
+        return v
 
 
 class ItemAny(BaseModel):

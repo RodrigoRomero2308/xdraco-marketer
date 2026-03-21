@@ -10,6 +10,8 @@ from pydantic import BaseModel, Field
 
 
 class SkillLevel(BaseModel):
+    """Nivel de una skill en el perfil; en MIR4 el rango de juego es 1–12."""
+
     skill_id: str
     level: int = Field(ge=0)
 

@@ -4,7 +4,7 @@ Lista viva de trabajo futuro; prioriza según lo que uses día a día.
 
 ## Datos y API
 
-- [ ] **Skills:** localizar endpoint o campo con skills + nivel; rellenar `CharacterProfile.skills` y validar reglas `skill_*`.
+- [ ] **Skills:** localizar endpoint o campo con skills + nivel; rellenar `CharacterProfile.skills` y validar reglas `skill_*`. (Glosario Maga inicial: `data/glossary/sorcerer_skills.yaml`; `GET /nft/character/skills` → 60001 sin sesión.)
 - [ ] **Inventario (`/nft/character/inven`):** opcional — normalizar a modelo si querés filtros por recursos (oro, materiales, etc.).
 - [ ] **Concurrencia:** `async` + límite de paralelismo para `fetch_listing` en lotes (sin martillar la API).
 - [ ] **Reintentos:** backoff ante 429/5xx y cabeceras configurables si el servidor exige algo más que el flujo actual.

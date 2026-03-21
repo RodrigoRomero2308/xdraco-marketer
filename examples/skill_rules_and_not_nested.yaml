@@ -1,0 +1,30 @@
+# Lancero: power + dos skills base (AND vía all_skills_min); excluir quien tenga la skill secundaria al máximo (NOT; niveles 1–12 en MIR4);
+# y además o burst alto o (ítem fuerte + burst medio).
+type: and
+items:
+  - type: class_is
+    class_id: lancer
+  - type: power_gte
+    min_power: 400000
+  - type: all_skills_min
+    requirements:
+      skill_main_thrust: 10
+      skill_dragon_sweep: 8
+  - type: not
+    item:
+      type: skill_min
+      skill_id: skill_cosmetic_trap
+      min_level: 12
+  - type: or
+    items:
+      - type: skill_min
+        skill_id: skill_burst_strike
+        min_level: 11
+      - type: and
+        items:
+          - type: item_any
+            min_rarity: legendary
+            min_enhancement: 10
+          - type: skill_min
+            skill_id: skill_burst_strike
+            min_level: 8

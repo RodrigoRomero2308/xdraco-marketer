@@ -1,0 +1,91 @@
+# Glosario de habilidades (ES) inferido desde libros en inventario NFT.
+# Regenerar: python scripts/scrape_skill_books_by_class.py --class all --out-dir ...
+
+class_slug: lionheart
+class_numeric: 7
+locale_names_primary: es
+source_note: Nombres ES desde ítems «Libro de habilidades de …» en GET /nft/character/inven
+generated_utc: '2026-03-21T18:18:16.569951Z'
+transport_ids_sampled:
+- 346792
+- 346911
+- 350741
+- 354518
+- 354558
+- 354734
+- 354749
+- 354840
+- 355035
+- 355159
+- 355214
+- 355267
+- 355393
+- 355430
+- 355444
+skills:
+- skill_id_suggested: abarrote_de_relampagos
+  name_es: Abarrote de relámpagos
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: cataclismo
+  name_es: Cataclismo
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: golpe_meteoro
+  name_es: Golpe meteoro
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: golpe_relampago
+  name_es: Golpe relámpago
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: patada_de_vendaval
+  name_es: Patada de vendaval
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: puno_del_tigre_feroz
+  name_es: Puño del tigre feroz
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: tajo_encadenado
+  name_es: Tajo encadenado
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: terremoto
+  name_es: Terremoto
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: terror_aniquilador
+  name_es: Terror aniquilador
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: tecnica_de_armadura_reforzada
+  name_es: Técnica de armadura reforzada
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: tecnica_de_bloqueo
+  name_es: Técnica de bloqueo
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: tecnica_de_captura
+  name_es: Técnica de captura
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: tecnica_de_curacion
+  name_es: Técnica de curación
+  name_en: null
+  wiki_en_ref: null
+scraped_unique_fragments_es:
+- Abarrote de relámpagos
+- Cataclismo
+- Golpe meteoro
+- Golpe relámpago
+- Patada de vendaval
+- Puño del tigre feroz
+- Tajo encadenado
+- Terremoto
+- Terror aniquilador
+- Técnica de armadura reforzada
+- Técnica de bloqueo
+- Técnica de captura
+- Técnica de curación

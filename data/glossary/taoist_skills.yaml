@@ -1,0 +1,136 @@
+# Glosario de habilidades (ES) inferido desde libros en inventario NFT.
+# Regenerar: python scripts/scrape_skill_books_by_class.py --class all --out-dir ...
+
+class_slug: taoist
+class_numeric: 3
+locale_names_primary: es
+source_note: Nombres ES desde ítems «Libro de habilidades de …» en GET /nft/character/inven
+generated_utc: '2026-03-21T18:15:28.111678Z'
+transport_ids_sampled:
+- 349014
+- 349611
+- 353258
+- 355138
+- 355238
+- 355290
+- 355358
+- 355412
+- 355472
+- 355474
+- 355494
+- 355495
+- 355496
+- 355503
+- 355504
+skills:
+- skill_id_suggested: arco_sacro
+  name_es: Arco sacro
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: ciclon_llama_alma
+  name_es: Ciclón llama alma
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: concha_de_niebla_veneno
+  name_es: Concha de niebla veneno
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: concha_explosiva
+  name_es: Concha explosiva
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: disparo_rapido
+  name_es: Disparo rápido
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: espada_rayosolar
+  name_es: Espada rayosolar
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: flecha_destellante
+  name_es: Flecha destellante
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: flecha_espada
+  name_es: Flecha espada
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: formacion_antidemonio
+  name_es: Formación antidemonio
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: gran_recuperacion
+  name_es: Gran recuperación
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: lluvia_de_espadas
+  name_es: Lluvia de espadas
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: ocultacion
+  name_es: Ocultación
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: ojo_mental
+  name_es: Ojo mental
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: onda_sombralunar
+  name_es: Onda sombralunar
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: orbe_sombralunar
+  name_es: Orbe sombralunar
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: proteccion_terrenal
+  name_es: Protección terrenal
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: puno_taiji
+  name_es: Puño taiji
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: rayo_buscador
+  name_es: Rayo buscador
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: recuperacion
+  name_es: Recuperación
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: tajo_elevado
+  name_es: Tajo elevado
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: toque_de_chi
+  name_es: Toque de chi
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: vendaval_hiriente
+  name_es: Vendaval hiriente
+  name_en: null
+  wiki_en_ref: null
+scraped_unique_fragments_es:
+- Arco sacro
+- Ciclón llama alma
+- Concha de niebla veneno
+- Concha explosiva
+- Disparo rápido
+- Espada rayosolar
+- Flecha destellante
+- Flecha espada
+- Formación antidemonio
+- Gran recuperación
+- Lluvia de espadas
+- Ocultación
+- Ojo mental
+- Onda sombralunar
+- Orbe sombralunar
+- Protección terrenal
+- Puño taiji
+- Rayo buscador
+- Recuperación
+- Tajo elevado
+- Toque de chi
+- Vendaval hiriente

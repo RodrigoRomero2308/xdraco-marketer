@@ -91,6 +91,7 @@ xdraco-marketer bargains --rule examples/maga_bargain_rule.yaml --pages 2 --limi
 | **Comandos útiles** (venv, pytest, CLI, curl) | [docs/commands.md](docs/commands.md) |
 | **Template de agente** para ayuda al armar reglas YAML | [docs/agent-rules-template.md](docs/agent-rules-template.md) |
 | **Qué IDs usar en reglas** (stats vs itemType vs imágenes) | [docs/rule-identifiers.md](docs/rule-identifiers.md) |
+| **Glosarios de habilidades por clase** (ES desde inventario; Maga con wiki opcional) | [data/glossary/README.md](data/glossary/README.md) |
 | **Pendientes y roadmap** | [TODO.md](TODO.md) (opcional: [exportar a issues de GitHub](TODO.md#pasar-estos-todos-a-issues-de-github)) |
 | Requests de ejemplo y notas sobre `seq` / `transportID` / `itemType` | `example-calls/**/data-infered.txt` |
 | Regla YAML de ejemplo | `examples/maga_bargain_rule.yaml` |

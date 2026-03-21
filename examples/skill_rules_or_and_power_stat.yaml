@@ -1,0 +1,14 @@
+# Combinación: (skill A >= N) OR (power alto Y stat defensivo). Niveles de skill: 1–12.
+# Útil cuando el listado no trae skills completas pero sí power/stats.
+type: or
+items:
+  - type: skill_min
+    skill_id: skill_signature_move
+    min_level: 10
+  - type: and
+    items:
+      - type: power_gte
+        min_power: 500000
+      - type: stat_key_gte
+        key: "Defensa Física"
+        min_value: 8000

@@ -7,6 +7,7 @@ Sirven como red de seguridad al refactorizar `evaluate.py` o ampliar `ast.py`.
 from __future__ import annotations
 
 import pytest
+from pydantic import ValidationError
 
 from xdraco_marketer.models.character import (
     CharacterProfile,
@@ -79,6 +80,160 @@ def test_skill_min_and_all_skills() -> None:
     assert not matches(p, ast.SkillMinLevel(skill_id="missing", min_level=1))
     assert matches(p, ast.AllSkillsMin(requirements={"s1": 10, "s2": 5}))
     assert not matches(p, ast.AllSkillsMin(requirements={"s1": 10, "s2": 6}))
+
+
+def test_skill_or_two_alternative_builds() -> None:
+    """OR: skill principal alta O (dos skills + stat)."""
+    rule = ast.And(
+        items=[
+            ast.ClassIs(class_id="sorcerer"),
+            ast.PowerGte(min_power=350_000),
+            ast.Or(
+                items=[
+                    ast.SkillMinLevel(skill_id="skill_meteor_storm", min_level=12),
+                    ast.And(
+                        items=[
+                            ast.AllSkillsMin(
+                                requirements={"skill_ice_wall": 9, "skill_fire_nova": 9}
+                            ),
+                            ast.StatKeyGte(key="Ataque Mágico", min_value=12_000),
+                        ]
+                    ),
+                ]
+            ),
+        ]
+    )
+    meteor_only = CharacterProfile(
+        class_id="sorcerer",
+        power=400_000,
+        skills=[SkillLevel(skill_id="skill_meteor_storm", level=12)],
+        stats={"ataque magico": 5_000},
+    )
+    assert matches(meteor_only, rule)
+
+    combo = CharacterProfile(
+        class_id="sorcerer",
+        power=400_000,
+        skills=[
+            SkillLevel(skill_id="skill_ice_wall", level=9),
+            SkillLevel(skill_id="skill_fire_nova", level=9),
+        ],
+        stats={"ataque magico": 12_000},
+    )
+    assert matches(combo, rule)
+
+    low_meteor = meteor_only.model_copy(
+        update={"skills": [SkillLevel(skill_id="skill_meteor_storm", level=11)]}
+    )
+    assert not matches(low_meteor, rule)
+
+
+def test_skill_not_blocks_overlevel_secondary() -> None:
+    """NOT(skill_min) excluye quien tenga la skill secundaria al tope (12)."""
+    rule = ast.And(
+        items=[
+            ast.ClassIs(class_id="lancer"),
+            ast.AllSkillsMin(requirements={"main": 10}),
+            ast.Not(item=ast.SkillMinLevel(skill_id="secondary", min_level=12)),
+        ]
+    )
+    ok = CharacterProfile(
+        class_id="lancer",
+        power=100,
+        skills=[
+            SkillLevel(skill_id="main", level=10),
+            SkillLevel(skill_id="secondary", level=11),
+        ],
+    )
+    assert matches(ok, rule)
+
+    bad = ok.model_copy(
+        update={"skills": [SkillLevel(skill_id="main", level=10), SkillLevel(skill_id="secondary", level=12)]}
+    )
+    assert not matches(bad, rule)
+
+
+def test_skill_or_with_item_and_branch() -> None:
+    """OR entre skill alta sola y AND(ítem legendario + skill media)."""
+    rule = ast.Or(
+        items=[
+            ast.SkillMinLevel(skill_id="burst", min_level=11),
+            ast.And(
+                items=[
+                    ast.ItemAny(min_rarity="legendary", min_enhancement=10),
+                    ast.SkillMinLevel(skill_id="burst", min_level=8),
+                ]
+            ),
+        ]
+    )
+    high_burst = CharacterProfile(
+        class_id="warrior",
+        power=1,
+        skills=[SkillLevel(skill_id="burst", level=11)],
+        items=[],
+    )
+    assert matches(high_burst, rule)
+
+    low_burst_gear = CharacterProfile(
+        class_id="warrior",
+        power=1,
+        skills=[SkillLevel(skill_id="burst", level=8)],
+        items=[
+            EquippedItem(slot="1", item_type="2_1", rarity="legendary", enhancement=10),
+        ],
+    )
+    assert matches(low_burst_gear, rule)
+
+    weak = CharacterProfile(
+        class_id="warrior",
+        power=1,
+        skills=[SkillLevel(skill_id="burst", level=8)],
+        items=[
+            EquippedItem(slot="1", item_type="2_1", rarity="epic", enhancement=10),
+        ],
+    )
+    assert not matches(weak, rule)
+
+
+def test_skill_or_power_and_stat_from_yaml() -> None:
+    text = """
+type: or
+items:
+  - type: skill_min
+    skill_id: skill_signature_move
+    min_level: 10
+  - type: and
+    items:
+      - type: power_gte
+        min_power: 500000
+      - type: stat_key_gte
+        key: "Defensa Física"
+        min_value: 8000
+"""
+    rule = load_rule_from_yaml_text(text)
+    by_skill = CharacterProfile(
+        class_id="taoist",
+        power=100_000,
+        skills=[SkillLevel(skill_id="skill_signature_move", level=10)],
+        stats={},
+    )
+    assert matches(by_skill, rule)
+
+    by_power_stat = CharacterProfile(
+        class_id="taoist",
+        power=600_000,
+        skills=[],
+        stats={"defensa fisica": 9000},
+    )
+    assert matches(by_power_stat, rule)
+
+    neither = CharacterProfile(
+        class_id="taoist",
+        power=400_000,
+        skills=[SkillLevel(skill_id="skill_signature_move", level=9)],
+        stats={"defensa fisica": 1000},
+    )
+    assert not matches(neither, rule)
 
 
 def test_item_any() -> None:
@@ -158,6 +313,17 @@ items:
 """
     rule = load_rule_from_yaml_text(yaml_text)
     assert matches(_base(), rule)
+
+
+def test_yaml_rejects_skill_min_level_out_of_mir4_range() -> None:
+    with pytest.raises(ValidationError):
+        load_rule_from_yaml_text(
+            """
+type: skill_min
+skill_id: x
+min_level: 15
+"""
+        )
 
 
 def test_unsupported_rule_type_raises() -> None:

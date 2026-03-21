@@ -1,0 +1,111 @@
+# Glosario de habilidades (ES) inferido desde libros en inventario NFT.
+# Regenerar: python scripts/scrape_skill_books_by_class.py --class all --out-dir ...
+
+class_slug: darkist
+class_numeric: 6
+locale_names_primary: es
+source_note: Nombres ES desde ítems «Libro de habilidades de …» en GET /nft/character/inven
+generated_utc: '2026-03-21T18:17:36.431510Z'
+transport_ids_sampled:
+- 347876
+- 349279
+- 354577
+- 355044
+- 355071
+- 355158
+- 355249
+- 355269
+- 355335
+- 355429
+- 355432
+- 355433
+- 355449
+- 355486
+- 355510
+skills:
+- skill_id_suggested: abismo
+  name_es: Abismo
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: asura
+  name_es: Asura
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: cadenas_de_sangre
+  name_es: Cadenas de sangre
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: corrupcion
+  name_es: Corrupción
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: despertar_sanguinario
+  name_es: Despertar sanguinario
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: destruccion
+  name_es: Destrucción
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: flecha_espada
+  name_es: Flecha espada
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: fuego_fatuo
+  name_es: Fuego fatuo
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: garras_dragontinas
+  name_es: Garras dragontinas
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: gran_recuperacion
+  name_es: Gran recuperación
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: invocacion_de_devorador
+  name_es: Invocación de devorador
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: niebla_dispersante_de_alma
+  name_es: Niebla dispersante de alma
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: orbe_sombralunar
+  name_es: Orbe sombralunar
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: proteccion_terrenal
+  name_es: Protección terrenal
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: reflujo
+  name_es: Reflujo
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: sangre_explosiva
+  name_es: Sangre explosiva
+  name_en: null
+  wiki_en_ref: null
+- skill_id_suggested: terror
+  name_es: Terror
+  name_en: null
+  wiki_en_ref: null
+scraped_unique_fragments_es:
+- Abismo
+- Asura
+- Cadenas de sangre
+- Corrupción
+- Despertar sanguinario
+- Destrucción
+- Flecha espada
+- Fuego fatuo
+- Garras dragontinas
+- Gran recuperación
+- Invocación de devorador
+- Niebla dispersante de alma
+- Orbe sombralunar
+- Protección terrenal
+- Reflujo
+- Sangre explosiva
+- Terror

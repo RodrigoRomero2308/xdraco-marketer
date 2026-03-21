@@ -1,0 +1,118 @@
+# Glosario: Maga (Sorcerer) — habilidades para documentar reglas skill_*
+# class_id en código: sorcerer (API class numérico = 2)
+#
+# Fuentes:
+#   - Nombres ES: inferidos desde ítems "Libro de habilidades de …" en
+#     GET /nft/character/inven (scrape scripts/scrape_sorcerer_skill_books.py, 2025-03).
+#   - Nombres EN (referencia): https://mir4.fandom.com/wiki/Sorcerer (tabla Skills)
+#
+# API dedicada: GET /nft/character/skills devolvió code 60001 sin cookie de sesión;
+# cuando exista documentación o auth, reemplazar skill_id sugerido por el ID real.
+
+class_slug: sorcerer
+class_numeric: 2
+locale_names_primary: es
+
+# skill_id_suggested: slug estable para YAML (minúsculas, sin tildes en el id);
+#   usar como skill_id en reglas si coincidiera con el futuro API; si no, mapear.
+skills:
+  - skill_id_suggested: remolino_de_dragon
+    name_es: Remolino de dragón
+    name_en: Dragon Tornado
+    wiki_en_ref: Dragon Tornado
+
+  - skill_id_suggested: escudo_magico
+    name_es: Escudo Mágico
+    name_en: Magic Shield
+    wiki_en_ref: Magic Shield
+
+  - skill_id_suggested: ciclon_oscuro
+    name_es: Ciclón oscuro
+    name_en: Dark Vortex
+    wiki_en_ref: Dark Vortex
+
+  - skill_id_suggested: escarcha
+    name_es: Escarcha
+    name_en: Frost Orb
+    wiki_en_ref: Frost Orb
+
+  - skill_id_suggested: bomba_de_hielo
+    name_es: Bomba de hielo
+    name_en: Blizzard
+    wiki_en_ref: Blizzard
+    notes: "En wiki EN 'Blizzard' es ultimate; verificar in-game"
+
+  - skill_id_suggested: estallido_ardiente
+    name_es: Estallido ardiente
+    name_en: Flame Strike
+    wiki_en_ref: Flame Strike
+
+  - skill_id_suggested: gancho_flamigero
+    name_es: Gancho flamígero
+    name_en: Flame Orb
+    wiki_en_ref: Flame Orb
+    notes: "Posible correspondencia; confirmar en cliente"
+
+  - skill_id_suggested: gancho_llamarada
+    name_es: Gancho llamarada
+    name_en: Immolate
+    wiki_en_ref: Immolate
+    notes: "Inferencia débil; varios 'Gancho' pueden ser ramas de la misma base"
+
+  - skill_id_suggested: gancho_de_hielo
+    name_es: Gancho de hielo
+    name_en: Frozen Block
+    wiki_en_ref: Frozen Block
+
+  - skill_id_suggested: gancho_de_rayo
+    name_es: Gancho de rayo
+    name_en: Chain Lightning
+    wiki_en_ref: Chain Lightning
+
+  - skill_id_suggested: nube_de_almas
+    name_es: Nube de almas
+    name_en: Soul Devour
+    wiki_en_ref: Soul Devour
+
+  - skill_id_suggested: golpe_pesado
+    name_es: Golpe pesado
+    name_en: Thunderstorm
+    wiki_en_ref: Thunderstorm
+    notes: "Inferencia; 'Golpe' aparece en varios skills"
+
+  - skill_id_suggested: abrazo_de_pajaro_bermellon
+    name_es: Abrazo de Pájaro bermellón
+    name_en: null
+    wiki_en_ref: null
+    notes: "Nombre de skill específico; sin entrada clara en Fandom — revisar parche"
+
+scraped_unique_fragments_es:
+  # Salida agregada del script (sin duplicar rareza)
+  - Abrazo de Pájaro bermellón
+  - Bomba de hielo
+  - Ciclón oscuro
+  - Escarcha
+  - Escudo Mágico
+  - Estallido ardiente
+  - Gancho de hielo
+  - Gancho de rayo
+  - Gancho flamígero
+  - Gancho llamarada
+  - Golpe pesado
+  - Nube de almas
+  - Remolino de dragón
+
+wiki_en_all_skills_reference:
+  # Lista completa en inglés (Fandom), para cobertura cuando falte scrape ES
+  - Dragon Tornado
+  - Flame Orb
+  - Frozen Block
+  - Immolate
+  - Soul Devour
+  - Flame Strike
+  - Chain Lightning
+  - Blizzard
+  - Magic Shield
+  - Thunderstorm
+  - Dark Vortex
+  - Frost Orb
