@@ -46,7 +46,7 @@ data/                  # datos locales (gitignore en raw/ si aplica)
 ## Reglas y gangas (motor genérico)
 
 - **Perfil:** `CharacterProfile` (clase, power, skills, ítems, pets, piedras) y `Listing` (precio + moneda).
-- **Reglas:** objeto JSON/YAML con `type` y composición `and` / `or` / `not` más condiciones (`class_is`, `power_gte`, `skill_min`, `all_skills_min`, `item_any` con `item_type` / `item_type_prefix`, `items_all_slots_min`, `pets_any_of`, `pets_all_of`, `stone_min_tier`, `stones_types_min_tier`, `stat_key_gte`, `stat_key_suffix_gte`). Ver `examples/maga_bargain_rule.yaml`.
+- **Reglas:** objeto JSON/YAML con `type` y composición `and` / `or` / `not` más condiciones (`class_is`, `power_gte`, `skill_min`, `all_skills_min`, `item_any` con `item_type` / `item_type_prefix`, `items_all_slots_min`, `pets_any_of`, `pets_all_of`, `stone_min_tier`, `stones_types_min_tier`, `stat_key_gte`, `stat_key_suffix_gte`). Umbrales de skill en reglas: **niveles 1–12** (MIR4). Ver `examples/maga_bargain_rule.yaml` y `examples/skill_rules_*.yaml` (combinaciones con skills, stats e ítems).
 - **Stats en reglas:** `CharacterProfile.stats` es clave normalizada → valor (ver `stat_labels.normalize_stat_label`: minúsculas, sin acentos). Los datos vienen del `statName` de la API; en YAML usá nombres legibles como **Ataque Mágico**, **Evasión**, **Defensa Física** — el motor las normaliza al comparar.
 - **Gangas:** `BargainDetector` compara cada listado que cumple la regla con la **mediana de precios del resto del cohorte**; si `precio <= mediana * median_ratio_max` (p. ej. 0.92), se considera ganga. Requiere `min_comparables` listados en el cohorte.
 
@@ -80,7 +80,7 @@ xdraco-marketer scan --pages 1 --limit 3 --delay 0.3
 xdraco-marketer bargains --rule examples/maga_bargain_rule.yaml --pages 2 --limit 20 --delay 0.2
 ```
 
-**Nota:** en las muestras actuales, **skills** no vienen en `summary`; habrá que localizar otro campo o endpoint para `skill_*` en reglas.
+**Nota:** en las muestras actuales, **skills con nivel** no vienen en `summary`; hace falta otro endpoint o sesión para poblar `CharacterProfile.skills`. Los **nombres** de skills por clase (referencia para IDs en reglas) están en `data/glossary/README.md` y se pueden refrescar con `scripts/scrape_skill_books_by_class.py` (textos ES desde libros en inventario de NFT de muestra).
 
 ## Documentación en el repo
 
@@ -94,7 +94,7 @@ xdraco-marketer bargains --rule examples/maga_bargain_rule.yaml --pages 2 --limi
 | **Glosarios de habilidades por clase** (ES desde inventario; Maga con wiki opcional) | [data/glossary/README.md](data/glossary/README.md) |
 | **Pendientes y roadmap** | [TODO.md](TODO.md) (opcional: [exportar a issues de GitHub](TODO.md#pasar-estos-todos-a-issues-de-github)) |
 | Requests de ejemplo y notas sobre `seq` / `transportID` / `itemType` | `example-calls/**/data-infered.txt` |
-| Regla YAML de ejemplo | `examples/maga_bargain_rule.yaml` |
+| Reglas YAML de ejemplo | `examples/maga_bargain_rule.yaml`, `examples/skill_rules_*.yaml` |
 | Tests del motor de reglas | `tests/test_rules_engine.py` (+ integración en `tests/test_rules.py`) |
 
 ## Próximos pasos (resumen)

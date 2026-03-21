@@ -4,7 +4,7 @@ Lista viva de trabajo futuro; prioriza según lo que uses día a día.
 
 ## Datos y API
 
-- [ ] **Skills:** localizar endpoint o campo con skills + nivel; rellenar `CharacterProfile.skills` y validar reglas `skill_*`. (Glosario Maga inicial: `data/glossary/sorcerer_skills.yaml`; `GET /nft/character/skills` → 60001 sin sesión.)
+- [ ] **Skills en perfil:** localizar endpoint o campo con skills + nivel para rellenar `CharacterProfile.skills` y que las reglas `skill_*` evalúen datos reales del listado. (`GET /nft/character/skills` → 60001 sin sesión.) **Glosario de nombres (ES) por clase:** YAML en `data/glossary/` + generación con `scripts/scrape_skill_books_by_class.py` (inferido desde libros en inventario; no sustituye niveles en API).
 - [ ] **Inventario (`/nft/character/inven`):** opcional — normalizar a modelo si querés filtros por recursos (oro, materiales, etc.).
 - [ ] **Concurrencia:** `async` + límite de paralelismo para `fetch_listing` en lotes (sin martillar la API).
 - [ ] **Reintentos:** backoff ante 429/5xx y cabeceras configurables si el servidor exige algo más que el flujo actual.
@@ -19,9 +19,9 @@ Lista viva de trabajo futuro; prioriza según lo que uses día a día.
 ## Reglas y DX
 
 - [ ] **Mapeo de `item_type`:** catálogo de códigos API (`2_1`, `8_5`, `23_*`, …) a categoría legible (arma, sub-arma, piedra, orbe, …) para docs, autocompletado o alias en reglas YAML.
-- [ ] **Documentar todas las condiciones** del motor (`stat_*`, `item_type`, …) en una tabla única o página corta.
-- [ ] **Validar reglas YAML** al cargar (mensajes de error claros por campo).
-- [ ] **Ejemplos:** más YAML de ejemplo (por clase, solo stats, solo equipo).
+- [ ] **Documentar todas las condiciones** del motor en un solo sitio (hoy hay tabla en [docs/rule-identifiers.md](docs/rule-identifiers.md) + [docs/agent-rules-template.md](docs/agent-rules-template.md); unificar o enlazar sin duplicar).
+- [ ] **Validar reglas YAML** con mensajes más explícitos por campo (además de la validación Pydantic ya aplicada al cargar, p. ej. `skill_min` / `all_skills_min` con niveles 1–12).
+- [ ] **Ejemplos YAML adicionales:** por clase, solo stats, solo equipo (ya hay `examples/skill_rules_*.yaml` con AND/OR/NOT + skills y `maga_bargain_rule.yaml`).
 
 ## Calidad
 
