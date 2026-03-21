@@ -1,0 +1,23 @@
+# Ejemplo: Maga >= 300k power, skills mínimas, ítem legendario, pets y piedras.
+# Ajusta class_id / skill_id / pet_id a los IDs que uses en tus datos.
+type: and
+items:
+  - type: class_is
+    class_id: mage
+  - type: power_gte
+    min_power: 300000
+  - type: all_skills_min
+    requirements:
+      skill_fireball: 10
+      skill_meteor: 10
+  - type: item_any
+    min_rarity: legendary
+    min_enhancement: 6
+  - type: pets_any_of
+    pet_ids:
+      - pet_dragon_a
+      - pet_phoenix_b
+  - type: stones_types_min_tier
+    requirements:
+      stone_attack: 5
+      stone_crit: 4

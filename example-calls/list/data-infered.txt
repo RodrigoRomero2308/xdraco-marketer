@@ -1,0 +1,32 @@
+Base: https://webapi.mir4global.com
+
+GET /nft/lists
+  Query típico:
+    listType=sale
+    class=0          → 0 = todas las clases; 1–7 = filtro por clase
+    levMin, levMax, powerMin, powerMax, priceMin, priceMax  → 0 suele significar "sin filtro"
+    sort=latest (u otros que exponga la web)
+    page=1...
+    languageCode=es
+
+Respuesta (data):
+  firstID, totalCount, more
+  lists[] por NFT en venta:
+    seq              → ID para /nft/character/summary?seq=
+    transportID      → ID para /nft/character/stats y /nft/character/inven
+    nftID, sealedDT, characterName
+    class (int), lv, powerScore, price
+    stat[]           → subconjunto de stats (statName + statValue numérico); útil para filtros rápidos sin llamar stats
+    MirageScore, MiraX, Reinforce, isNew
+
+Clases (class numérico):
+1. Warrior
+2. Sorcerer
+3. Taoist
+4. Arbalist
+5. Lancer
+6. Darkist
+7. Lionheart
+
+En código: mir4_api.list_row_to_profile_stub() arma un CharacterProfile parcial; las claves de stats
+son el statName normalizado (igual que tras stats_response_to_stat_map), no iconos ni rutas.

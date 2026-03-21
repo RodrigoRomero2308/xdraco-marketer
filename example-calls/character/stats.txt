@@ -1,0 +1,392 @@
+curl 'https://webapi.mir4global.com/nft/character/stats?transportID=354669&languageCode=es' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Accept-Language: es-419,es;q=0.9,en;q=0.8' \
+  -H 'Authorization;' \
+  -H 'Connection: keep-alive' \
+  -H 'Origin: https://www.xdraco.com' \
+  -H 'Referer: https://www.xdraco.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: cross-site' \
+  -H 'Sec-Fetch-Storage-Access: active' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36' \
+  -H 'sec-ch-ua: "Chromium";v="146", "Not-A.Brand";v="24", "Google Chrome";v="146"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"'
+
+  Response:
+
+  {
+    "code": 200,
+    "data": {
+        "lists": [
+            {
+                "statName": "PS",
+                "statValue": "204,754",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/Symbol_Ico_Status/Ico_Status_Hp.png"
+            },
+            {
+                "statName": "Regen. % de PS (por 10 s)",
+                "statValue": "0.8%",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/Symbol_Ico_Status/Ico_Status_HPRecovery.png"
+            },
+            {
+                "statName": "PM",
+                "statValue": "31,224",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/Symbol_Ico_Status/Ico_Status_SP.png"
+            },
+            {
+                "statName": "Regen. % de PM (por 10 s)",
+                "statValue": "5.0%",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/Symbol_Ico_Status/Ico_Status_AddRegenerationMana.png"
+            },
+            {
+                "statName": "Ataque Físico",
+                "statValue": "16,411",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/Symbol_Ico_Status/Ico_Status_ADDPhysicalDamage.png"
+            },
+            {
+                "statName": "Ataque Mágico",
+                "statValue": "5,767",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/Symbol_Ico_Status/Ico_Status_ADDMagicDamage.png"
+            },
+            {
+                "statName": "Defensa Física",
+                "statValue": "10,615",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/Symbol_Ico_Status/Ico_Status_DefensePhysical.png"
+            },
+            {
+                "statName": "Defensa Mágica",
+                "statValue": "10,289",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/Symbol_Ico_Status/Ico_Status_DefenseMagic.png"
+            },
+            {
+                "statName": "Precisión",
+                "statValue": "5,368",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/Symbol_Ico_Status/Ico_Status_Accuracy.png"
+            },
+            {
+                "statName": "Evasión",
+                "statValue": "5,061",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/Symbol_Ico_Status/Ico_Status_Dodge.png"
+            },
+            {
+                "statName": "Crít.",
+                "statValue": "4,067",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/Symbol_Ico_Status/Ico_Status_Critical.png"
+            },
+            {
+                "statName": "Eva. de Crít.",
+                "statValue": "5,364",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/Symbol_Ico_Status/Ico_Status_AvoidCritical.png"
+            },
+            {
+                "statName": "Aum. de Daño de At. Crít.",
+                "statValue": "1041.1%",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/Symbol_Ico_Status/Ico_Status_CriticalOutcome.png"
+            },
+            {
+                "statName": "Reducc. de Daño Crít. Recibido",
+                "statValue": "1095.9%",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/Symbol_Ico_Status/Ico_Status_AddDefCriticalOutcome.png"
+            },
+            {
+                "statName": "Aum. de Daño de At. de Golpe",
+                "statValue": "759.0%",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/Symbol_Ico_Status/Ico_Status_AddSmiteSkillDamage.png"
+            },
+            {
+                "statName": "Reducc. de Daño de Golpe Recibido",
+                "statValue": "833.9%",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/Symbol_Ico_Status/Ico_Status_AddDefSmiteSkillDamage.png"
+            },
+            {
+                "statName": "Poder antidemonios",
+                "statValue": "153.8%",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/Symbol_Ico_Status/Ico_Status_AddAtkDemonsDamage.png"
+            },
+            {
+                "statName": "Aum. de daño JcJ",
+                "statValue": "357.4%",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/Symbol_Ico_Status/Ico_Status_ADDPVPDamagePer.png"
+            },
+            {
+                "statName": "Reducc. de Daño JcJ Recibido",
+                "statValue": "283.0%",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/Symbol_Ico_Status/Ico_Status_FallPVPDamagePer.png"
+            },
+            {
+                "statName": "Aum. de Daño de At. de monst.",
+                "statValue": "743.1%",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/Symbol_Ico_Status/Ico_Status_AtkNormalMonDamagePer.png"
+            },
+            {
+                "statName": "Aum. de Daño de At. de jefe",
+                "statValue": "690.6%",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/Symbol_Ico_Status/Ico_Status_ADDBossDamagePer.png"
+            },
+            {
+                "statName": "Reducc. de Daño Recibido de monstruos",
+                "statValue": "736.3%",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/Symbol_Ico_Status/Ico_Status_AddDefNormalMonDamage.png"
+            },
+            {
+                "statName": "Reducc. de Daño Recibido de jefe",
+                "statValue": "712.2%",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/Symbol_Ico_Status/Ico_Status_FallBossDamagePer.png"
+            },
+            {
+                "statName": "Aum. de Daño de At. de habil.",
+                "statValue": "539.6%",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/Symbol_Ico_Status/Ico_Status_ADDMagicDamagePer.png"
+            },
+            {
+                "statName": "Reducc. de Daño de habil. Recibido",
+                "statValue": "621.9%",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/Symbol_Ico_Status/Ico_Status_AddDefSkillDamage.png"
+            },
+            {
+                "statName": "Aum. de Todo Daño de At.",
+                "statValue": "141.7%",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/Symbol_Ico_Status/Ico_Status_ADDAllDamagePer.png"
+            },
+            {
+                "statName": "Reducc. de Todo Daño Recibido",
+                "statValue": "184.3%",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/Symbol_Ico_Status/Ico_Status_FallAllDamagePer.png"
+            },
+            {
+                "statName": "Aum. de éxito de Aturdir",
+                "statValue": "335.8%",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/Symbol_Ico_Status/Ico_Status_AddStunPer.png"
+            },
+            {
+                "statName": "Aum. de Resis. a Aturdir",
+                "statValue": "278.2%",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/Symbol_Ico_Status/Ico_Status_AddDefStunPer.png"
+            },
+            {
+                "statName": "Aum. de éxito de Debilitación",
+                "statValue": "368.0%",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/Symbol_Ico_Status/Ico_Status_AddDeBuffPer.png"
+            },
+            {
+                "statName": "Aum. de Resis. a Debilitación",
+                "statValue": "422.6%",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/Symbol_Ico_Status/Ico_Status_AddDefDeBuffPer.png"
+            },
+            {
+                "statName": "Aum. de éxito de Silenciar",
+                "statValue": "351.5%",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/Symbol_Ico_Status/Ico_Status_AddCursePer.png"
+            },
+            {
+                "statName": "Aum. de Resis. a Silenciar",
+                "statValue": "238.9%",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/Symbol_Ico_Status/Ico_Status_AddDefCursePer.png"
+            },
+            {
+                "statName": "Aum. de EXP de caza",
+                "statValue": "384.3%",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Global_Image/Global_Common/Ico_Status_HuntExpPer.png"
+            },
+            {
+                "statName": "Aum. de obten. de cobre de caza",
+                "statValue": "270.3%",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Global_Image/Global_Common/Ico_Status_HuntGoldPer.png"
+            },
+            {
+                "statName": "Aum. de Obtención de Energía",
+                "statValue": "159.8%",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/Symbol_Ico_Status/Ico_Status_RatioGetSpirit.png"
+            },
+            {
+                "statName": "Aumento de obten. de acero osc.",
+                "statValue": "326.2%",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/Symbol_Ico_Status/Ico_Status_BlackIronEarning_Increase.png"
+            },
+            {
+                "statName": "Aum. de probab. de caída",
+                "statValue": "121.3%",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/Symbol_Ico_Status/Ico_Status_RatioRewardDrop.png"
+            },
+            {
+                "statName": "Aum. Prob. de Caída por Suerte",
+                "statValue": "135.5%",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/Symbol_Ico_Status/Ico_Status_LuckDrop.png"
+            },
+            {
+                "statName": "Acel. de Tiempo de Recolección",
+                "statValue": "67.5%",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/Symbol_Ico_Status/Ico_Status_MiningTime_Decrease.png"
+            },
+            {
+                "statName": "Acel. de Tiempo de Recolección de Energía",
+                "statValue": "90.0%",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/Symbol_Ico_Status/Ico_Status_RatioFallMeditationTime.png"
+            },
+            {
+                "statName": "Acel. de Tiempo de Excavación",
+                "statValue": "93.3%",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/Symbol_Ico_Status/Ico_Status_FoaagingTime_Decrease.png"
+            },
+            {
+                "statName": "Reducc. de reactivación de habil.",
+                "statValue": "22.0%",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/Symbol_Ico_Status/Ico_Status_ReduceSkillCoolTime.png"
+            },
+            {
+                "statName": "Reducc. de coste de PM",
+                "statValue": "27.0%",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/Symbol_Ico_Status/Ico_Status_SPCostPer.png"
+            },
+            {
+                "statName": "Aum. de éxito de Noquear",
+                "statValue": "265.5%",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/Symbol_Ico_Status/Ico_Status_AddKnockDownPer.png"
+            },
+            {
+                "statName": "Aum. de Resis. a Noquear",
+                "statValue": "266.3%",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/Symbol_Ico_Status/Ico_Status_AddDefKnockDownPer.png"
+            },
+            {
+                "statName": "Aum. de efecto de poción de PS",
+                "statValue": "38.3%",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/Symbol_Ico_Status/Ico_Status_AddItemHPHealBooster.png"
+            },
+            {
+                "statName": "Aum. de efecto de poción de PM",
+                "statValue": "31.3%",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/Symbol_Ico_Status/Ico_Status_AddItemMPHealBooster.png"
+            },
+            {
+                "statName": "Aum. de cant. de recup. de PS de hab.",
+                "statValue": "89.7%",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/Symbol_Ico_Status/Ico_Status_AddSkillHPHealBooster.png"
+            },
+            {
+                "statName": "Vida",
+                "statValue": "5",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/ServerVisitLife_Info.png"
+            },
+            {
+                "statName": "Aum. de Daño de At. Normal",
+                "statValue": "173.2%",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/Symbol_Ico_Status/Ico_Status_AddNormalAtkDamage.png"
+            },
+            {
+                "statName": "Reducc. de Daño de At. Normal recibido",
+                "statValue": "122.3%",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/Symbol_Ico_Status/Ico_Status_AddNormalAtkDefense.png"
+            },
+            {
+                "statName": "Reducc. de reactivación de uso de agua divina",
+                "statValue": "9.7%",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/Symbol_Ico_Status/Ico_Status_DecreaseDivineWaterCoolTime.png"
+            },
+            {
+                "statName": "Aceleración de tiempo de apertura de cajas",
+                "statValue": "5.4%",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/Symbol_Ico_Status/Ico_Status_DecreaseBoxCastingTime.png"
+            },
+            {
+                "statName": "Aum. de prob. de éxito en entrenamiento solitario",
+                "statValue": "0.9%",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/Symbol_Ico_Status/Ico_Status_AddClosedTrainingPer.png"
+            },
+            {
+                "statName": "Aum. de prob. de éxito de desarrollo de equipos (Inusual)",
+                "statValue": "4.2%",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/Symbol_Ico_Status/Ico_Status_AddUCEquipmentEnchant.png"
+            },
+            {
+                "statName": "Aum. de prob. de éxito de desarrollo de equipos (Raro)",
+                "statValue": "3.0%",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/Symbol_Ico_Status/Ico_Status_AddREquipmentEnchant.png"
+            },
+            {
+                "statName": "Aum. de prob. de éxito de desarrollo de equipos (Épico)",
+                "statValue": "5.2%",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/Symbol_Ico_Status/Ico_Status_AddEEquipmentEnchant.png"
+            },
+            {
+                "statName": "Aum. de prob. de éxito de desarrollo de equipos (Legendario)",
+                "statValue": "0%",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/Symbol_Ico_Status/Ico_Status_AddLEquipmentEnchant.png"
+            },
+            {
+                "statName": "Aum. de prob. de éxito de desarrollo de equipos (Inusual a legendario)",
+                "statValue": "3.0%",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/Symbol_Ico_Status/Ico_Status_AddAEquipmentEnchant.png"
+            },
+            {
+                "statName": "Aum. de prob. de éxito de desarrollo de artefactos de dragón (Raro)",
+                "statValue": "2.0%",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/Symbol_Ico_Status/Ico_Status_AddRDragonArtifactEnchant.png"
+            },
+            {
+                "statName": "Aum. de prob. de éxito de desarrollo de artefactos de dragón (Épico)",
+                "statValue": "3.0%",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/Symbol_Ico_Status/Ico_Status_AddEDragonArtifactEnchant.png"
+            },
+            {
+                "statName": "Aum. de prob. de éxito de desarrollo de artefactos de dragón (Legendario)",
+                "statValue": "3.0%",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/Symbol_Ico_Status/Ico_Status_AddLDragonArtifactEnchant.png"
+            },
+            {
+                "statName": "Aum. de prob. de éxito de desarrollo de artefactos de dragón (Inusual a legendario)",
+                "statValue": "3.0%",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/Symbol_Ico_Status/Ico_Status_AddADragonArtifactEnchant.png"
+            },
+            {
+                "statName": "Aum. de vigor máximo (segundos)",
+                "statValue": "1,778sec",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Global_Image/Global_Common/Ico_Status_AddMaxVigorRecharge.png"
+            },
+            {
+                "statName": "Aum. de Precisión contra monstruos",
+                "statValue": "96",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/Symbol_Ico_Status/Ico_Status_AddNormalMonAccuracy.png"
+            },
+            {
+                "statName": "Aum. de Evasión de monstruos",
+                "statValue": "90",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/Symbol_Ico_Status/Ico_Status_AddNormalMonDodge.png"
+            }
+        ],
+        "mainstats": [
+            {
+                "statName": "PS",
+                "statValue": "204,754",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/Symbol_Ico_Status/Ico_Status_Hp.png"
+            },
+            {
+                "statName": "PM",
+                "statValue": "31,224",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/Symbol_Ico_Status/Ico_Status_SP.png"
+            },
+            {
+                "statName": "Ataque Físico",
+                "statValue": "16,411",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/Symbol_Ico_Status/Ico_Status_ADDPhysicalDamage.png"
+            },
+            {
+                "statName": "Ataque Mágico",
+                "statValue": "5,767",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/Symbol_Ico_Status/Ico_Status_ADDMagicDamage.png"
+            },
+            {
+                "statName": "Defensa Física",
+                "statValue": "10,615",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/Symbol_Ico_Status/Ico_Status_DefensePhysical.png"
+            },
+            {
+                "statName": "Defensa Mágica",
+                "statValue": "10,289",
+                "iconPath": "https://file.mir4global.com/xdraco-thumb/Icon/Symbol/Symbol_Ico_Status/Ico_Status_DefenseMagic.png"
+            }
+        ]
+    }
+}

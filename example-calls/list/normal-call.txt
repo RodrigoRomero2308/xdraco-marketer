@@ -1,0 +1,15 @@
+curl 'https://webapi.mir4global.com/nft/lists?listType=sale&class=0&levMin=0&levMax=0&powerMin=0&powerMax=0&priceMin=0&priceMax=0&sort=latest&page=1&languageCode=es' \
+  -H 'Accept: application/json, text/plain, */*' \
+  -H 'Accept-Language: es-419,es;q=0.9,en;q=0.8' \
+  -H 'Authorization;' \
+  -H 'Connection: keep-alive' \
+  -H 'Origin: https://www.xdraco.com' \
+  -H 'Referer: https://www.xdraco.com/' \
+  -H 'Sec-Fetch-Dest: empty' \
+  -H 'Sec-Fetch-Mode: cors' \
+  -H 'Sec-Fetch-Site: cross-site' \
+  -H 'Sec-Fetch-Storage-Access: active' \
+  -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36' \
+  -H 'sec-ch-ua: "Chromium";v="146", "Not-A.Brand";v="24", "Google Chrome";v="146"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"'

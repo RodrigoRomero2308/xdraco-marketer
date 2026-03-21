@@ -1,0 +1,43 @@
+Endpoints (misma base https://webapi.mir4global.com):
+
+1) GET /nft/character/summary?seq={seq}&languageCode=es
+   - seq sale del listado (lists[].seq).
+   - Incluye precio de la oferta, nftID, blockchain, y sobre todo:
+     data.character: name, worldName, transportID, class, level, powerScore, ...
+     data.equipItem: mapa de slots → ítems con itemIdx, enhance, grade, tier,
+       itemType (código de juego, ej. 2_1), itemName, refineStep, holeCount,
+       itemPath (URL de icono; no se usa para reglas).
+
+2) GET /nft/character/stats?transportID={transportID}&languageCode=es
+   - transportID está en summary (character.transportID) y en el listado (lists[].transportID).
+   - data.lists[]: statName, statValue (texto con comas / %), iconPath (solo UI; ignorado en código).
+   - Las reglas usan el texto statName (normalizado: minúsculas, sin acentos). No usar iconPath ni .png.
+
+3) GET /nft/character/inven?transportID=…
+   - Inventario completo (recursos). Por ahora fuera de alcance del motor de gangas.
+
+Item Type (equipItem / itemType) — referencia rápida:
+  "2_1" y "20_1": arma y sub arma
+  "3_X": armaduras
+  "4_X": accesorios
+  "22_X": artefactos de dragón
+  "8_X": piedra mágica y espectromita → se normaliza a stones en summary_data_to_profile
+  "21_X": pieza mística
+  "24_X": ETs
+  "26_X": artefactos ancestrales
+  "23_X": orbes de alma mágica
+  "28_X": otros orbes vinculados a pets (según muestras)
+
+Campos en ítems de equipItem:
+  grade: 5 legendario, 4 épico, 3 raro (mapeado a legendary/epic/rare en código)
+  enhance: nivel de mejora
+  tier: 1–4 en varios tipos
+  holeCount: otro sistema de stats
+  refineStep: nivel de Reforja de dragón (muy relevante en cuentas top)
+
+Skills: no aparecen en las muestras de summary; skills[] queda vacío hasta localizar
+endpoint o campo adicional. Las reglas skill_* seguirán aplicando cuando rellenes datos.
+
+Flujo recomendado para un NFT:
+  lists → summary(seq) + stats(transportID) → mir4_api.summary_data_to_profile +
+  mir4_api.with_stats(..., stats_response_to_stat_map(stats.data.lists))
