@@ -80,6 +80,8 @@ xdraco-marketer scan --pages 1 --limit 3 --delay 0.3
 xdraco-marketer bargains --rule examples/maga_bargain_rule.yaml --pages 2 --limit 20 --delay 0.2
 ```
 
+Los comandos **`scan`** y **`bargains`** escriben al final un **reporte resumido en stderr** (filas vistas, cargas OK, errores, tamaño del cohorte y gangas; en `bargains`, notas si no hay resultados). **`bargains`** admite `--verbose-errors` para ver el traceback de fallos al cargar un NFT.
+
 **Nota:** en las muestras actuales, **skills con nivel** no vienen en `summary`; hace falta otro endpoint o sesión para poblar `CharacterProfile.skills`. Los **nombres** de skills por clase (referencia para IDs en reglas) están en `data/glossary/README.md` y se pueden refrescar con `scripts/scrape_skill_books_by_class.py` (textos ES desde libros en inventario de NFT de muestra).
 
 ## Documentación en el repo

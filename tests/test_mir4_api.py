@@ -14,6 +14,8 @@ def test_parse_stat_value() -> None:
     assert parse_stat_value("204,754") == 204754.0
     assert parse_stat_value("1041.1%") == 1041.1
     assert parse_stat_value(123) == 123.0
+    assert parse_stat_value("945sec") == 945.0
+    assert parse_stat_value("1.5min") == 1.5
 
 
 def test_stats_response_uses_normalized_stat_names() -> None:
@@ -26,6 +28,15 @@ def test_stats_response_uses_normalized_stat_names() -> None:
     ]
     m = stats_response_to_stat_map(rows)
     assert m["ataque magico"] == 1000.0
+
+
+def test_stats_response_skips_unparseable_values() -> None:
+    rows = [
+        {"statName": "Ataque Mágico", "statValue": "100"},
+        {"statName": "Rareza", "statValue": "---"},
+    ]
+    m = stats_response_to_stat_map(rows)
+    assert m == {"ataque magico": 100.0}
 
 
 def test_list_row_stub() -> None:

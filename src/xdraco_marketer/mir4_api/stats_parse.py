@@ -25,5 +25,9 @@ def stats_response_to_stat_map(data_lists: list[dict[str, Any]]) -> dict[str, fl
         raw = row.get("statValue")
         if raw is None:
             continue
-        out[key] = parse_stat_value(raw)
+        try:
+            out[key] = parse_stat_value(raw)
+        except ValueError:
+            # "---", texto puro, formatos no previstos: no romper el listado completo.
+            continue
     return out
