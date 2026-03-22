@@ -38,7 +38,7 @@ class BargainDetector:
         self.settings = settings or BargainSettings()
 
     def cohort(self, listings: list[Listing]) -> list[Listing]:
-        return [li for li in listings if matches(li.character, self.rule)]
+        return [li for li in listings if matches(li, self.rule)]
 
     def find(
         self,

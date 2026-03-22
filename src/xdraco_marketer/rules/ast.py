@@ -1,7 +1,8 @@
-"""Expresiones de regla: composición lógica + condiciones atómicas sobre CharacterProfile."""
+"""Expresiones de regla: composición lógica + condiciones sobre perfil y, si aplica, precio del listado."""
 
 from __future__ import annotations
 
+from decimal import Decimal
 from typing import Annotated, Literal
 
 from pydantic import BaseModel, Field, field_validator
@@ -22,6 +23,20 @@ class PowerGte(BaseModel):
 class PowerLte(BaseModel):
     type: Literal["power_lte"] = "power_lte"
     max_power: int = Field(ge=0)
+
+
+class PriceGte(BaseModel):
+    """Precio del listado >= min_price (misma unidad que `Listing.price`; requiere contexto listado)."""
+
+    type: Literal["price_gte"] = "price_gte"
+    min_price: Decimal = Field(ge=0)
+
+
+class PriceLte(BaseModel):
+    """Precio del listado <= max_price."""
+
+    type: Literal["price_lte"] = "price_lte"
+    max_price: Decimal = Field(ge=0)
 
 
 class SkillMinLevel(BaseModel):
@@ -129,6 +144,8 @@ _RuleLeaf = (
     ClassIs
     | PowerGte
     | PowerLte
+    | PriceGte
+    | PriceLte
     | SkillMinLevel
     | AllSkillsMin
     | ItemAny

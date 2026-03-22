@@ -1,8 +1,9 @@
-"""Evaluación de reglas sobre CharacterProfile."""
+"""Evaluación de reglas sobre CharacterProfile y, si aplica, precio del listado (Listing)."""
 
 from __future__ import annotations
 
 from xdraco_marketer.models.character import CharacterProfile
+from xdraco_marketer.models.listing import Listing
 from xdraco_marketer.rules import ast
 from xdraco_marketer.stat_labels import normalize_stat_label
 
@@ -19,20 +20,44 @@ def _rarity_ok(item_rarity: str | None, min_rarity: str | None) -> bool:
     return _norm(item_rarity) == _norm(min_rarity)
 
 
-def matches(profile: CharacterProfile, rule: ast.RuleExpr) -> bool:
+def matches(ctx: CharacterProfile | Listing, rule: ast.RuleExpr) -> bool:
+    """
+    Evalúa la regla. Si ``ctx`` es solo ``CharacterProfile``, las condiciones
+    ``price_gte`` / ``price_lte`` no pueden cumplirse (no hay precio) → False.
+    Pasá ``Listing`` cuando la regla incluya filtros de precio (p. ej. gangas).
+    """
+
+    if isinstance(ctx, Listing):
+        return _matches_impl(ctx.character, ctx, rule)
+    return _matches_impl(ctx, None, rule)
+
+
+def _matches_impl(
+    profile: CharacterProfile,
+    listing: Listing | None,
+    rule: ast.RuleExpr,
+) -> bool:
     r = rule
     if isinstance(r, ast.And):
-        return all(matches(profile, x) for x in r.items)
+        return all(_matches_impl(profile, listing, x) for x in r.items)
     if isinstance(r, ast.Or):
-        return any(matches(profile, x) for x in r.items)
+        return any(_matches_impl(profile, listing, x) for x in r.items)
     if isinstance(r, ast.Not):
-        return not matches(profile, r.item)
+        return not _matches_impl(profile, listing, r.item)
     if isinstance(r, ast.ClassIs):
         return _norm(profile.class_id) == _norm(r.class_id)
     if isinstance(r, ast.PowerGte):
         return profile.power >= r.min_power
     if isinstance(r, ast.PowerLte):
         return profile.power <= r.max_power
+    if isinstance(r, ast.PriceGte):
+        if listing is None:
+            return False
+        return listing.price >= r.min_price
+    if isinstance(r, ast.PriceLte):
+        if listing is None:
+            return False
+        return listing.price <= r.max_price
     if isinstance(r, ast.SkillMinLevel):
         lv = profile.skill_level(r.skill_id)
         return lv is not None and lv >= r.min_level

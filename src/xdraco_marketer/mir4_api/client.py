@@ -117,16 +117,24 @@ class Mir4Client:
         *,
         max_pages: int | None = None,
         class_id: int = 0,
+        price_min: int = 0,
+        price_max: int = 0,
         sort: str = "latest",
         language_code: str = "es",
     ) -> Iterator[dict[str, Any]]:
-        """Pagina `lists[]` mientras `more` sea truthy."""
+        """Pagina `lists[]` mientras `more` sea truthy.
+
+        ``price_min`` / ``price_max`` se envían como ``priceMin`` / ``priceMax`` a la API
+        (0 suele significar sin filtro en el front; mismo criterio que el cliente web).
+        """
 
         page = 1
         while True:
             data = self.fetch_sale_list(
                 page=page,
                 class_id=class_id,
+                price_min=price_min,
+                price_max=price_max,
                 sort=sort,
                 language_code=language_code,
             )

@@ -39,7 +39,7 @@ xdraco-marketer scan --pages 1 --limit 3 --delay 0.3
 xdraco-marketer bargains --rule examples/maga_bargain_rule.yaml --pages 2 --limit 20 --delay 0.2
 ```
 
-`scan` y `bargains` muestran al final un **reporte en stderr** (recorrido del listado, errores de detalle, cohorte / gangas). `bargains` tiene `--verbose-errors` para tracebacks completos.
+`scan` y `bargains` muestran al final un **reporte en stderr** (recorrido del listado, errores de detalle, cohorte / gangas). `bargains` tiene `--verbose-errors` para tracebacks completos. En `list`, `scan` y `bargains`, **`--price-min`** / **`--price-max`** reenvían los filtros de precio del listado a la API (`priceMin` / `priceMax`; `0` = típicamente sin filtro).
 
 ## Ejecutar módulo sin instalar script (alternativa)
 

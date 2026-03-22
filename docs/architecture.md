@@ -47,7 +47,7 @@ flowchart TB
 | Capa | Rol | Ubicación principal |
 |------|-----|---------------------|
 | **Modelos** | `CharacterProfile` (clase, power, skills, ítems, pets, piedras, stats) y `Listing` (precio, moneda, metadatos). | `src/xdraco_marketer/models/` |
-| **Reglas** | AST discriminated (`and` / `or` / `not` + condiciones atómicas), carga YAML/JSON, evaluación `matches(profile, rule)`. | `src/xdraco_marketer/rules/` |
+| **Reglas** | AST discriminated (`and` / `or` / `not` + condiciones atómicas), carga YAML/JSON, evaluación `matches(CharacterProfile \| Listing, rule)` (precio solo con `Listing`). | `src/xdraco_marketer/rules/` |
 | **Gangas** | Filtra listados que cumplen la regla y marca precio bajo vs mediana del cohorte. | `src/xdraco_marketer/bargains/` |
 | **API MIR4** | Cliente HTTP, normalización de summary/stats/list a perfiles, armado de `Listing`. | `src/xdraco_marketer/mir4_api/` |
 | **CLI** | Comandos `list`, `scan`, `bargains`. | `src/xdraco_marketer/cli.py` |

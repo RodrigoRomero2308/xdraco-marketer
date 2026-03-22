@@ -18,7 +18,12 @@ from xdraco_marketer.rules.loader import load_rule_from_yaml_text
 
 def _cmd_list(args: argparse.Namespace) -> int:
     with Mir4Client(delay_s=args.delay) as client:
-        data = client.fetch_sale_list(page=args.page, class_id=args.class_id)
+        data = client.fetch_sale_list(
+            page=args.page,
+            class_id=args.class_id,
+            price_min=args.price_min,
+            price_max=args.price_max,
+        )
         print(json.dumps(data, ensure_ascii=False, indent=2))
     return 0
 
@@ -28,7 +33,12 @@ def _cmd_scan(args: argparse.Namespace) -> int:
     loaded = 0
     errors: list[tuple[str, str]] = []
     with Mir4Client(delay_s=args.delay) as client:
-        for row in client.iter_sale_rows(max_pages=args.pages, class_id=args.class_id):
+        for row in client.iter_sale_rows(
+            max_pages=args.pages,
+            class_id=args.class_id,
+            price_min=args.price_min,
+            price_max=args.price_max,
+        ):
             if loaded >= args.limit:
                 break
             rows_seen += 1
@@ -68,7 +78,11 @@ def _print_scan_report(
     errors: list[tuple[str, str]],
 ) -> None:
     print("\n--- reporte scan ---", file=sys.stderr)
-    print(f"  páginas máx.: {args.pages}  clase: {args.class_id}  delay: {args.delay}s", file=sys.stderr)
+    print(
+        f"  páginas máx.: {args.pages}  clase: {args.class_id}  delay: {args.delay}s  "
+        f"API priceMin={args.price_min} priceMax={args.price_max}",
+        file=sys.stderr,
+    )
     print(f"  filas recorridas (listado): {rows_seen}", file=sys.stderr)
     print(f"  perfiles cargados OK: {loaded} (límite {args.limit})", file=sys.stderr)
     print(f"  errores al cargar detalle: {len(errors)}", file=sys.stderr)
@@ -93,7 +107,8 @@ def _print_bargains_report(
     print(f"  regla: {args.rule}", file=sys.stderr)
     print(
         f"  páginas máx.: {args.pages}  clase: {args.class_id}  "
-        f"delay: {args.delay}s  límite listados: {args.limit}",
+        f"delay: {args.delay}s  límite listados: {args.limit}  "
+        f"API priceMin={args.price_min} priceMax={args.price_max}",
         file=sys.stderr,
     )
     print(
@@ -146,7 +161,12 @@ def _cmd_bargains(args: argparse.Namespace) -> int:
     errors: list[tuple[str, str]] = []
     rows_seen = 0
     with Mir4Client(delay_s=args.delay) as client:
-        for row in client.iter_sale_rows(max_pages=args.pages, class_id=args.class_id):
+        for row in client.iter_sale_rows(
+            max_pages=args.pages,
+            class_id=args.class_id,
+            price_min=args.price_min,
+            price_max=args.price_max,
+        ):
             if len(listings) >= args.limit:
                 break
             rows_seen += 1
@@ -178,6 +198,27 @@ def _cmd_bargains(args: argparse.Namespace) -> int:
     return 0
 
 
+def _add_api_price_filters(parser: argparse.ArgumentParser) -> None:
+    """Parámetros ``priceMin`` / ``priceMax`` de GET /nft/lists (0 = típicamente sin filtro)."""
+
+    parser.add_argument(
+        "--price-min",
+        type=int,
+        default=0,
+        metavar="N",
+        dest="price_min",
+        help="Filtro de precio mínimo en el listado API (priceMin; 0 = sin mínimo)",
+    )
+    parser.add_argument(
+        "--price-max",
+        type=int,
+        default=0,
+        metavar="N",
+        dest="price_max",
+        help="Filtro de precio máximo en el listado API (priceMax; 0 = sin máximo)",
+    )
+
+
 def main(argv: list[str] | None = None) -> int:
     p = argparse.ArgumentParser(prog="xdraco-marketer", description="MIR4 / XDraco helpers")
     sub = p.add_subparsers(dest="cmd", required=True)
@@ -186,6 +227,7 @@ def main(argv: list[str] | None = None) -> int:
     pl.add_argument("--page", type=int, default=1)
     pl.add_argument("--class", dest="class_id", type=int, default=0)
     pl.add_argument("--delay", type=float, default=0.0)
+    _add_api_price_filters(pl)
     pl.set_defaults(func=_cmd_list)
 
     ps = sub.add_parser("scan", help="Listado + summary + stats por NFT (resumen texto)")
@@ -193,6 +235,7 @@ def main(argv: list[str] | None = None) -> int:
     ps.add_argument("--class", dest="class_id", type=int, default=0)
     ps.add_argument("--limit", type=int, default=5)
     ps.add_argument("--delay", type=float, default=0.25, help="Pausa entre requests")
+    _add_api_price_filters(ps)
     ps.set_defaults(func=_cmd_scan)
 
     pb = sub.add_parser("bargains", help="Cargar N listados y evaluar regla YAML")
@@ -203,6 +246,7 @@ def main(argv: list[str] | None = None) -> int:
     pb.add_argument("--delay", type=float, default=0.25)
     pb.add_argument("--ratio", default="0.92")
     pb.add_argument("--min-cohort", type=int, dest="min_cohort", default=3)
+    _add_api_price_filters(pb)
     pb.add_argument(
         "--verbose-errors",
         action="store_true",

@@ -13,6 +13,7 @@ Referencia única para no mezclar criterios “de juego” con recursos gráfico
 | Mascota / orbe | `pets_*`: `pet_ids` | **`itemIdx`** (y tipo `23_*` / `28_*`) como `pet_id` | Icono en `itemPath` |
 | Clase | `class_is` | Clase numérica → slug (`sorcerer`, …) en `mir4_api.constants` | Avatar o imagen |
 | Power | `power_gte` / `power_lte` | `powerScore` | — |
+| Precio listado | `price_gte` / `price_lte` | `price` en la fila de `/nft/lists` (y en `Listing`) | Filtro **adicional** en la API: `priceMin` / `priceMax` en `/nft/lists` (CLI: `--price-min` / `--price-max`) |
 | Skills | `skill_min`, `all_skills_min` | IDs propios cuando exista endpoint; niveles **1–12** (MIR4) en reglas | — |
 
 ## Detalle: stats

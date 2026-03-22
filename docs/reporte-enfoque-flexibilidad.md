@@ -14,7 +14,7 @@ Las mejoras con mayor impacto serían: **(1)** un patrón de registro o *visitor
 
 ### 1. Arquitectura general (fortalezas)
 
-- **Flujo claro**: listado → normalización a `CharacterProfile` → `matches(profile, rule)` → cohorte para gangas (`bargains/detector.py`). `rules.evaluate` no depende de HTTP, lo que facilita tests unitarios (`tests/test_rules_engine.py`).
+- **Flujo claro**: listado → `Listing` (personaje + precio) → `matches(Listing, rule)` en gangas (o solo `CharacterProfile` en tests de perfil) → cohorte (`bargains/detector.py`). `rules.evaluate` no depende de HTTP, lo que facilita tests unitarios (`tests/test_rules_engine.py`).
 - **Reglas como datos**: `RuleExpr` es un union discriminado (`and` / `or` / `not` + hojas atómicas), cargable desde YAML (`rules/loader.py`). Los usuarios pueden versionar reglas en archivos sin recompilar.
 - **Documentación de extensión**: `docs/architecture.md` ya lista el procedimiento “nueva condición” y “otra métrica de barato”.
 

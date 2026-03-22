@@ -12,7 +12,7 @@ Actuás como ayuda técnica para escribir **reglas YAML** compatibles con el pro
 
 - Las reglas son un árbol JSON/YAML con campo `type` en cada nodo.
 - Composición: `and`, `or`, `not` (con `items` o `item` según corresponda).
-- Se evalúan sobre un **`CharacterProfile`**: `class_id` (string), `power`, `skills[]`, `items[]`, `pets[]`, `stones[]`, `stats` (mapa clave → número).
+- Se evalúan sobre un **`CharacterProfile`** o, para gangas / precio, sobre un **`Listing`** completo (personaje + `price`). Condiciones de personaje usan el perfil; `price_gte` / `price_lte` usan el precio del listado y **no** se cumplen si solo hay perfil sin listado.
 - Los datos suelen venir de la API `webapi.mir4global.com`: clase numérica → slug (`sorcerer`, `warrior`, …); ítems con `item_type` (`"2_1"`, `"8_5"`, …).
 - **Stats:** la API devuelve `statName` (texto de la UI, según `languageCode`) y `statValue`. En el código se guardan con clave **normalizada** (minúsculas, sin acentos, espacios colapsados): p. ej. `"Ataque Mágico"` → clave interna `ataque magico`. Las reglas deben usar **nombres legibles** como los del juego: *Ataque Mágico*, *Evasión*, *Defensa Física*, *Precisión*, etc. El motor compara con la misma normalización, así que pequeñas variantes de mayúsculas/acentos no rompen.
 
@@ -29,6 +29,8 @@ Actuás como ayuda técnica para escribir **reglas YAML** compatibles con el pro
 | `class_is` | `class_id` | Slug: `sorcerer`, `warrior`, … |
 | `power_gte` | `min_power` | Entero |
 | `power_lte` | `max_power` | Entero |
+| `price_gte` | `min_price` | Precio del listado ≥ umbral (necesitás evaluar con `Listing`; p. ej. CLI `bargains`) |
+| `price_lte` | `max_price` | Precio del listado ≤ umbral |
 | `skill_min` | `skill_id`, `min_level` (1–12) | Si no hay endpoint de skills, el perfil puede tener `skills` vacío |
 | `all_skills_min` | `requirements` (map skill_id → nivel mínimo, cada uno 1–12) | AND de varias skills |
 | `item_any` | `slot`, `item_type`, `item_type_prefix`, `min_rarity`, `min_enhancement` | Al menos un ítem cumple |

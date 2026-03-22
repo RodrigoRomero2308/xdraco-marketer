@@ -9,6 +9,8 @@ from __future__ import annotations
 import pytest
 from pydantic import ValidationError
 
+from decimal import Decimal
+
 from xdraco_marketer.models.character import (
     CharacterProfile,
     EquippedItem,
@@ -16,6 +18,7 @@ from xdraco_marketer.models.character import (
     PetRef,
     SkillLevel,
 )
+from xdraco_marketer.models.listing import Currency, Listing
 from xdraco_marketer.rules import ast
 from xdraco_marketer.rules.evaluate import matches
 from xdraco_marketer.rules.loader import load_rule_from_yaml_text
@@ -71,6 +74,22 @@ def _base() -> CharacterProfile:
 )
 def test_class_and_power(rule: ast.RuleExpr, expected: bool) -> None:
     assert matches(_base(), rule) is expected
+
+
+def test_price_gte_lte_requires_listing() -> None:
+    li = Listing(
+        listing_id="1",
+        character=CharacterProfile(class_id="sorcerer", power=1),
+        price=Decimal("150"),
+        currency=Currency.WEMIX,
+    )
+    assert matches(li, ast.PriceGte(min_price=Decimal("100")))
+    assert not matches(li, ast.PriceGte(min_price=Decimal("200")))
+    assert matches(li, ast.PriceLte(max_price=Decimal("150")))
+    assert not matches(li, ast.PriceLte(max_price=Decimal("149")))
+    p = _base()
+    assert not matches(p, ast.PriceGte(min_price=Decimal("1")))
+    assert not matches(p, ast.PriceLte(max_price=Decimal("999999999")))
 
 
 def test_skill_min_and_all_skills() -> None:
@@ -313,6 +332,26 @@ items:
 """
     rule = load_rule_from_yaml_text(yaml_text)
     assert matches(_base(), rule)
+
+
+def test_price_rule_loads_from_yaml() -> None:
+    rule = load_rule_from_yaml_text(
+        """
+type: and
+items:
+  - type: price_gte
+    min_price: 50
+  - type: price_lte
+    max_price: 500
+"""
+    )
+    li = Listing(
+        listing_id="1",
+        character=CharacterProfile(class_id="sorcerer", power=1),
+        price=Decimal("100"),
+        currency=Currency.WEMIX,
+    )
+    assert matches(li, rule)
 
 
 def test_yaml_rejects_skill_min_level_out_of_mir4_range() -> None:
